@@ -8,10 +8,11 @@ export const ADMIN_LAYOUT_ROUTES: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'dashboard',
+        path: '',
         component: DashboardComponent,
-      },
-  
+      }
+
+      //TODAS LAS RUTAS QUE SEGUIRAN 
     ]
   },
 ];
