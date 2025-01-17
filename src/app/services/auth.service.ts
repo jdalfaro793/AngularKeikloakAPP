@@ -1,13 +1,17 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import Keycloak from 'keycloak-js';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  constructor() {}
+  
+  keycloak = inject(Keycloak);
 
-  isLoggedIn(): boolean {
-    // Implementa la lógica para verificar si el usuario está autenticado
-    return !!localStorage.getItem('token'); // Ejemplo simple
+  constructor() {
+  }
+
+  logout(): void {
+    this.keycloak.logout();
   }
 }

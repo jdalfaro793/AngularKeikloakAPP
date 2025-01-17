@@ -1,10 +1,83 @@
 export const environment = {
   production: false,
-  apiUrl: '/api',
-  keycloak: {
-    // Keycloak url
-    issuer: 'http://localhost:9090',
-    realm: 'bpa-authorization',
-    clientId: 'front'
+  qa:true,
+
+  configuration:{
+    url:"http://localhost:4200/",
+    keycloak: {
+      issuer: 'http://localhost:9090', //keycloak
+      realm: 'bpa-authorization',
+      clientId: 'front'
+    }
   },
+
+  api:{
+    url:"http://localhost:8080",
+    rutas:{
+
+      /*empresa:{
+        init:"empresa",
+      },
+      usuario:{
+        init:"usuario",
+      },
+      notificacion:{
+        init:"notificacion",
+        empresaAsociada:"listarEmpresaAsociada",
+      },
+      reporte:{
+        init:"reporte",
+      },
+      login:{
+        validar:"login/validar",
+        obtenerUsuario: "login/obtenerUsuarioURL",
+        init:"oauth/token",
+      },
+      usuarioempresa:{
+        init:"usuarioEmpresa",
+      },
+      usuariocliente:{
+        init:"usuarioCliente",
+      },
+      dataEntry:{
+        init:"dataEntry",
+      },     
+      cliente:{
+        init:"cliente",
+      },
+      menu:{
+        init:"menu",
+      },
+      portalfirma:{
+        init:"portalFirmas",
+        enviarDocumento:"enviarDocumento"
+      },
+      file:{
+        init:"file",
+      },
+      certificado:{
+        init:"certificado",
+      },
+      parametro:{
+        init:"parametro",
+      },
+      recuperar: {
+        init:"recuperar"
+      },
+      auth:{
+        login:"oauth/token",
+        prelogin: "pre/login",
+        preloginPorCorreo: "pre/loginPorCorreo",
+      },
+      operaciones: {
+        url: "operaciones/",
+        crearGrupo: "crearGrupo"
+      },
+      validarDocumento: {
+        init: "validarDocumento"
+      }
+      */
+
+    }
+  }
 };

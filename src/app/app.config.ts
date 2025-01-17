@@ -1,25 +1,19 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { APP_INITIALIZER } from '@angular/core';
-import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { includeBearerTokenInterceptor, KeycloakService } from 'keycloak-angular';
 
 import { routes } from './app.routes';
-import { initializer } from '../utils/app-init';
+import { provideKeycloakAngular } from './keycloak.config';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideKeycloakAngular(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideAnimationsAsync(),
+    provideHttpClient(withInterceptors([includeBearerTokenInterceptor]))
 
-    // Keycloak
-    KeycloakService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializer,
-      multi: true,
-      deps: [KeycloakService],
-    },
   ],
 };
