@@ -5,9 +5,9 @@ export const environment = {
   configuration:{
     url:"http://localhost:4200/",
     keycloak: {
-      issuer: 'http://localhost:9090', //keycloak
-      realm: 'bpa-authorization',
-      clientId: 'front'
+      issuer: 'http://localhost:9898', //keycloak
+      realm: 'micro-services',
+      clientId: 'angu_front'
     }
   },
 
@@ -15,6 +15,9 @@ export const environment = {
     url:"http://localhost:8080",
     rutas:{
 
+      student:{
+        init:"/api/student"
+      }
       /*empresa:{
         init:"empresa",
       },

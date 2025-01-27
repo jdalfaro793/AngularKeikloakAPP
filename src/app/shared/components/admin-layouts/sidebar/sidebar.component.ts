@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MODULES } from './modules';
 
 @Component({
@@ -11,6 +11,19 @@ import { MODULES } from './modules';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-  modules = MODULES; // Importar la configuración de módulos
+
+  constructor(private router: Router) {}
+
+  modules = MODULES;
+  expandedModule: string | null = null;
+  
+  toggleModule(module: any) {
+    if (module.path) {
+      this.router.navigate([module.path]);
+    } else {
+      this.expandedModule = this.expandedModule === module.label ? null : module.label;
+    }
+  }
+
 
 }

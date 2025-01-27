@@ -1,13 +1,21 @@
 export const MODULES = [
     {
-      path: '',
-      label: 'Bienvenido',
-      icon: 'dashboard',
+      path: 'dashboard',
+      label: 'Dashboard',
     },
     {
-      path: '/profile',
-      label: 'User',
-      icon: 'profile',
+      path: null,
+      label: 'Administracion',
+        child:[
+        {
+          path: '/usuario',
+          label: 'Usuarios',
+        },
+        {
+          path: '/rol',
+          label: 'Roles',
+        }
+      ]
     }
   ];
   

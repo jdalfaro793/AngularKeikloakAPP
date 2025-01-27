@@ -7,7 +7,7 @@ import {
   AutoRefreshTokenService,
   UserActivityService,
 } from 'keycloak-angular';
-import { environment } from '../environments/environments';
+import { environment } from '../environments/environment';
 
 const localhostCondition = createInterceptorCondition<IncludeBearerTokenCondition>({
   urlPattern: new RegExp(`^${environment.api.url}(\/.*)?$`, 'i')

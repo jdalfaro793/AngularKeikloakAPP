@@ -18,5 +18,6 @@ export class HeaderComponent {
   }
   logout() {
     this.keycloak.logout();
+//    localStorage.removeItem('perfiles');
   }
 }

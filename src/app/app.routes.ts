@@ -4,8 +4,8 @@ import { ForbiddenComponent } from './views/forbidden/forbidden.component';
 import { canActivateAuthRole } from './shared/guards/auth.guard';
 import { LayoutComponent } from './shared/components/admin-layouts/layout/layout.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
-import { ProfileComponent } from './views/profile/profile.component';
-import { LoginComponent } from './views/login/login.component';
+import { UsuarioComponent } from './views/usuario/usuario.component';
+import { RolComponent } from './views/rol/rol.component';
 
 export const routes: Routes = [
   {
@@ -18,7 +18,7 @@ export const routes: Routes = [
     component: LayoutComponent, 
     canActivate: [canActivateAuthRole], 
     data: {
-      roles: ['GESTOR', 'ADMIN', 'USER'], 
+      roles: ['ROLE_GESTOR', 'ROLE_ADMIN', 'ROLE_USER'], 
     },
     children: [
       {
@@ -26,11 +26,19 @@ export const routes: Routes = [
         component: DashboardComponent,
       },
       {
-        path: 'profile',
-        component: ProfileComponent,
+        path: 'usuario',
+        component: UsuarioComponent,
         canActivate: [canActivateAuthRole], 
         data: {
-          roles: ['GESTOR'],
+          roles: ['ROLE_ADMIN'],
+        },
+      },
+      {
+        path: 'rol',
+        component: RolComponent,
+        canActivate: [canActivateAuthRole], 
+        data: {
+          roles: ['ROLE_ADMIN'],
         },
       },
     ],
